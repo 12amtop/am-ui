@@ -14,7 +14,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    height: 4rem;
     .logo {
         margin-left: 1rem;
     }

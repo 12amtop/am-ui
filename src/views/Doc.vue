@@ -26,3 +26,12 @@ import TopNav from '../components/TopNav.vue'
     </div>
 </template>
 
+<style lang="scss" scoped>
+    .content {
+        background-color: gray;
+        width: 20%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+</style>

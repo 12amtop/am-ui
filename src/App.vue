@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { provide, ref } from 'vue';
-
-const asideVisible = ref(false)
-provide('xxx',asideVisible)
+const width = document.documentElement.clientWidth;
+const asideVisible = ref(width <= 500 ? false : true);
+provide('asideVisible', asideVisible)
 </script>
 
 <template>
@@ -16,9 +16,11 @@ provide('xxx',asideVisible)
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }

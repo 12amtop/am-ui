@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Ref, inject } from 'vue';
 import TopNav from '../components/TopNav.vue'
-const asideVisible = inject<Ref<boolean>>('xxx')
+const asideVisible = inject<Ref<boolean>>('asideVisible')
 </script>
 
 <template>
@@ -29,14 +29,17 @@ const asideVisible = inject<Ref<boolean>>('xxx')
 </template>
 
 <style lang="scss" scoped>
-    .content {
-        line-height: 2.5rem;
-        background-color: gray;
-        width: 25%;
+.content {
+    line-height: 2.5rem;
+    background-color: gray;
+    width: 25%;
+    z-index: -1;
+
+    @media (max-width:500px) {
         position: fixed;
         top: 0;
         left: 0;
-        z-index: -1;
         padding-top: 5.5rem;
     }
+}
 </style>

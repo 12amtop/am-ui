@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { Ref, inject } from 'vue';
-const asideVisible = inject<Ref<boolean>>('xxx')
-const toggleAside = ()=>{
+const asideVisible = inject<Ref<boolean>>('asideVisible')
+const toggleAside = () => {
     asideVisible.value = !asideVisible.value
 }
 </script>
 <template>
     <div class="topNav">
         <span class="menuChangeButton" @click="toggleAside">=</span>
-        <div class="logo" >LOGO</div>
+        <div class="logo">LOGO</div>
         <ul class="menu">
             <li>菜单1</li>
             <li>菜单2</li>
@@ -25,23 +25,34 @@ const toggleAside = ()=>{
     height: 4rem;
     position: relative;
     z-index: 0;
-    .menuChangeButton {
+
+    >.menuChangeButton {
         color: red;
         position: absolute;
+        display: none;
     }
-    .logo {
+
+    >.logo {
         margin-left: 1.5rem;
     }
 
-    .menu {
+    >.menu {
         // background-color: red;
         display: flex;
         justify-content: stretch;
         margin-right: 1rem;
 
         li {
-            margin-left: 1rem;
+            margin-left: 0 1rem;
         }
+    }
+
+    @media (max-width:500px) {
+        >.menu {
+            display: none;
+        }
+        >.logo {margin: 0 auto;}
+        >.menuChangeButton {display: inline-block;}
     }
 }
 </style>

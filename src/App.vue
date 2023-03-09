@@ -2,10 +2,6 @@
 </script>
 
 <template>
-  <div>导航 | 
-    <RouterLink to="/">组件一</RouterLink> |
-    <RouterLink to="/2">组件二</RouterLink>
-  </div>
   <RouterView></RouterView>
 </template>
 

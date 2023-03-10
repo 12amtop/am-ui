@@ -2,7 +2,7 @@
 import TopNav from '../components/TopNav.vue'
 </script>
 <template>
-    <div >
+    <div class="top">
         <TopNav></TopNav>
         <div class="banner">
             <h1>AM-UI</h1>
@@ -14,18 +14,20 @@ import TopNav from '../components/TopNav.vue'
 </template>
 
 <style lang="scss" scoped>
+
 .banner {
     text-align: center;
     margin-top: 12rem;
-    h2 {
+
+    >h2 {
         margin-bottom: 5rem;
     }
-    a {
+
+    >a {
         border: 1px solid #ccc;
         margin: 1.5rem;
         padding: .8rem;
         border-radius: 20%;
         background-color: bisque;
     }
-}
-</style>
+}</style>

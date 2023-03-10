@@ -31,6 +31,7 @@ button {
     cursor: pointer;
 
     >#textTips {
+        font-size: .9rem;
         color: white;
         transition: all .25s linear;
         width: $h;

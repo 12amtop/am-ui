@@ -34,11 +34,9 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
 
 <style lang="scss" scoped>
 .layout {
-    height: 100vh;
 
     >.content {
         line-height: 2.5rem;
-        background-color: gray;
         z-index: -1;
         display: flex;
         justify-content: flex-start;
@@ -47,6 +45,9 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
             margin-top: 4rem;
             position: fixed;
             padding: .5rem;
+            background-color: #ccc;
+            height: 100vh;
+
             li {
                 margin: 1rem .5rem;
             }
@@ -57,7 +58,7 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
             padding: 1rem 2rem;
             flex: 4;
             background-color: lightblue;
-            margin-left: 8rem;
+            margin-left: 7rem;
         }
 
         @media (max-width:500px) {

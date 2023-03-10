@@ -72,8 +72,4 @@
     <div>这是AM-ui框架的介绍</div>
     <div>这是AM-ui框架的介绍</div>
     <div>这是AM-ui框架的介绍</div>
-    <div>这是AM-ui框架的介绍</div>
-    <div>这是AM-ui框架的介绍</div>
-    <div>这是AM-ui框架的介绍</div>
-    <div>这是AM-ui框架的介绍</div>
 </template>

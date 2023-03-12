@@ -40,12 +40,12 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
         z-index: -1;
         display: flex;
         justify-content: flex-start;
-
         >aside {
             margin-top: 4rem;
             position: fixed;
             padding: .5rem;
-            background-color: #ccc;
+            background-color: rgb(38, 57, 90);
+            color: white;
             height: 100vh;
 
             li {
@@ -57,7 +57,6 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
             margin-top: 4rem;
             padding: 1rem 2rem;
             flex: 4;
-            background-color: lightblue;
             margin-left: 7rem;
         }
 
@@ -67,10 +66,6 @@ const asideVisible = inject<Ref<boolean>>('asideVisible')
                 top: 0;
                 left: 0;
                 padding-top: 1.5rem;
-            }
-
-            >aside {
-                background-color: gray;
             }
 
             >main {

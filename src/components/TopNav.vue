@@ -24,8 +24,9 @@ const toggleAside = () => {
     width: 100%;
     position: fixed;
     top: 0;
+
     >.topNav {
-        background-color: aquamarine;
+        background-color: rgb(152, 194, 232);
         display: flex;
         justify-content: space-between;
         align-items: center;

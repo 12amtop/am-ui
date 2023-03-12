@@ -8,7 +8,7 @@ const props = defineProps({
 const emit = defineEmits(['update:value'])
 </script>
 <template>
-    <button @click="toggle" :class="{ checked: value }">
+    <button class="am-switch" @click="toggle" :class="{ 'am-checked': value }">
         <div id="textTips">
             <span v-if="value" id="onTips">on</span>
             <span v-if="!value" id="offTips">off</span>
@@ -17,11 +17,11 @@ const emit = defineEmits(['update:value'])
     </button>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 2rem;
 $h2: $h - .2rem;
 
-button {
+.am-switch{
     height: $h;
     width: $h*2;
     border: none;
@@ -35,15 +35,17 @@ button {
         color: white;
         transition: all .25s linear;
         width: $h;
-        > #offTips {
-           position: absolute;
-           top: .5rem; 
-           right: 1rem;
+
+        >#offTips {
+            position: absolute;
+            top: .5rem;
+            right: 1rem;
         }
-        > #onTips {
-           position: absolute;
-           top: .5rem; 
-           right: 2rem;
+
+        >#onTips {
+            position: absolute;
+            top: .5rem;
+            right: 2rem;
         }
     }
 
@@ -59,8 +61,8 @@ button {
         transition: all .25s ease-in;
     }
 
-    &.checked {
-        background-color: green;
+    &.am-checked {
+        background-color: rgb(108, 175, 224);
 
         >#iconTips {
             left: calc(100% - #{$h2} - .1rem);

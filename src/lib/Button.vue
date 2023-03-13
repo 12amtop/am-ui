@@ -79,8 +79,7 @@ const classes = computed(() => {
     &.am-theme-button {
         background-color: rgb(152, 194, 232);
         border-radius: .4rem;
-        // padding: 0 .5rem;
-        // box-shadow: 4px 1px 2px fade-out(black, 0.95);
+        box-shadow: 4px 1px 2px fade_out(black, 0.95);
         @include am-size-button;
 
         &.am-level-main {
@@ -98,7 +97,7 @@ const classes = computed(() => {
 
         &:focus {
             outline: none;
-            background-color: #0c7224;
+            background-color: #3e8fbe;
             color: white;
         }
 
@@ -185,4 +184,5 @@ const classes = computed(() => {
     }
 
 
-}</style>
+}
+</style>

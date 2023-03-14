@@ -7,7 +7,6 @@ const props = defineProps({
     }
 })
 const slots = useSlots()
-// console.log(slots.default!());
 const defaults = slots.default!()
 const titles = defaults.map((t) => {
     return t.props!.title;
@@ -16,20 +15,15 @@ const emit = defineEmits(['update:selectedTabTitle'])
 const toggle = (t: String) => {
     emit('update:selectedTabTitle', t)
 }
-const itemRefs = ref<HTMLDivElement[]>([])
+const selectedItem = ref<HTMLElement | Element>(null!)
 const indicator = ref<HTMLDivElement>(null!)
 const container = ref<HTMLDivElement>(null!)
 const indicatorComputed = () => {
-
-    const items = itemRefs.value
-    const result = items.filter(item => item.classList.contains('selected'))[0]
-    const { width } = result.getBoundingClientRect()
+    const { width } = selectedItem.value.getBoundingClientRect()
     indicator.value.style.width = width + 'px'
-
     const { left: left1 } = container.value.getBoundingClientRect()
-    const { left: left2 } = result.getBoundingClientRect()
+    const { left: left2 } = selectedItem.value.getBoundingClientRect()
     indicator.value.style.left = left2 - left1 + 'px'
-
 }
 onMounted(() => {
     indicatorComputed()
@@ -41,8 +35,8 @@ onUpdated(() => {
 <template>
     <div class="am-tabs">
         <div class="am-tabs-nav" ref="container">
-            <div class="am-tabs-nav-item " ref="itemRefs" :class="{ selected: t === selectedTabTitle }"
-                v-for="(t, index) in titles" :key="index" @click="toggle(t)">
+            <div class="am-tabs-nav-item " :ref="el => { if (t === selectedTabTitle) selectedItem = el }"
+                :class="{ selected: t === selectedTabTitle }" v-for="(t, index) in titles" :key="index" @click="toggle(t)">
                 {{ t }}
             </div>
             <div class="am-tabs-nav-indicator" ref="indicator"></div>
@@ -63,7 +57,6 @@ onUpdated(() => {
     padding-bottom: 10rem;
 
     &-nav {
-        background: pink;
         display: flex;
         border-bottom: 1px solid #ccc;
         box-shadow: 1px 2px 10px fade_out(black, .3);
@@ -80,6 +73,7 @@ onUpdated(() => {
         }
 
         &-indicator {
+            transition: all .25s;
             position: absolute;
             left: 0rem;
             bottom: -.1rem;

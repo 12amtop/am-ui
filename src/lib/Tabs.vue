@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from '@vue/reactivity';
 import { onMounted, onUpdated, ref, useSlots } from 'vue';
 
 const props = defineProps({
@@ -8,6 +9,9 @@ const props = defineProps({
 })
 const slots = useSlots()
 const defaults = slots.default!()
+const current = computed(() => {
+    return defaults.find(tag => tag.props?.title === props.selectedTabTitle)
+})
 const titles = defaults.map((t) => {
     return t.props!.title;
 })
@@ -35,15 +39,14 @@ onUpdated(() => {
 <template>
     <div class="am-tabs">
         <div class="am-tabs-nav" ref="container">
-            <div class="am-tabs-nav-item " :ref="el => { if (t === selectedTabTitle) selectedItem = el }"
+            <div class="am-tabs-nav-item " :ref="el => { if (t === selectedTabTitle) selectedItem= el }"
                 :class="{ selected: t === selectedTabTitle }" v-for="(t, index) in titles" :key="index" @click="toggle(t)">
                 {{ t }}
             </div>
             <div class="am-tabs-nav-indicator" ref="indicator"></div>
         </div>
         <div class="am-tabs-content">
-            <component class="am-tabs-content-item" :class="{ selected: c.props!.title === selectedTabTitle }"
-                v-for="(c, index) in defaults" :is="c" :key="index"></component>
+            <component :is="current" :key="current?.props?.title"></component>
         </div>
     </div>
 </template>
@@ -84,14 +87,6 @@ onUpdated(() => {
 
     &-content {
         padding: 1rem 0;
-
-        &-item {
-            display: none;
-
-            &.selected {
-                display: block;
-            }
-        }
     }
 }
 </style>

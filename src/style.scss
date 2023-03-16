@@ -1,13 +1,15 @@
-* { margin: 0;
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   body {
-    line-height: 1.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5;
     a {
       text-decoration: none;
-      color: goldenrod;
+      color: lightblue;
       &:hover {
-        color: lightblue;
+        opacity: .9;
       }
     }
     ul,

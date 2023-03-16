@@ -16,4 +16,5 @@ router.afterEach(() => {
 </template>
 
 <style lang="scss" scoped>
+
 </style>

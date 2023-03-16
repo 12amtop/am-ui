@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import Button from '../lib/Button.vue'
-const onClick = () => {
-    console.log('ss');
-}
+
 </script>
 <template>
     <h2>Button示例</h2>
     <h3>示例1</h3>
     <div class="am-theme-buttons">
-        <Button>你好</Button>
+        <!-- <Button>你好</Button> -->
         <Button theme="button">你好</Button>
         <Button theme="link">你好</Button>
         <Button theme="text">你好</Button>

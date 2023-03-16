@@ -21,7 +21,7 @@ const emit = defineEmits(['update:value'])
 $h: 2rem;
 $h2: $h - .2rem;
 
-.am-switch{
+.am-switch {
     height: $h;
     width: $h*2;
     border: none;
@@ -29,6 +29,9 @@ $h2: $h - .2rem;
     border-radius: $h;
     position: relative;
     cursor: pointer;
+    &:focus{
+        outline: none;
+    }
 
     >#textTips {
         font-size: .9rem;

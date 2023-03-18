@@ -1,15 +1,20 @@
 <script setup lang="ts">
+
 const toggle = () => {
     emit('update:value', !props.value)
 }
 const props = defineProps({
-    value: Boolean
+    value: Boolean,
+    disabled: Boolean,
+    textTip: Boolean,
 })
-const emit = defineEmits(['update:value'])
+const emit = defineEmits(['update:value', 'disActive'])
+let s = props.textTip ? true : false
+props.disabled ? emit('disActive') : null
 </script>
 <template>
-    <button class="am-switch" @click="toggle" :class="{ 'am-checked': value }">
-        <div id="textTips">
+    <button class="am-switch" @click="toggle" :class="{ 'am-checked': value, 'disabled': disabled }">
+        <div id="textTips" v-if="s">
             <span v-if="value" id="onTips">on</span>
             <span v-if="!value" id="offTips">off</span>
         </div>
@@ -29,7 +34,9 @@ $h2: $h - .2rem;
     border-radius: $h;
     position: relative;
     cursor: pointer;
-    &:focus{
+    z-index: 10;
+
+    &:focus {
         outline: none;
     }
 
@@ -60,8 +67,8 @@ $h2: $h - .2rem;
         width: $h2;
         background: white;
         border-radius: $h2;
-        cursor: pointer;
         transition: all .25s ease-in;
+        z-index: 1;
     }
 
     &.am-checked {
@@ -70,6 +77,11 @@ $h2: $h - .2rem;
         >#iconTips {
             left: calc(100% - #{$h2} - .1rem);
         }
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        opacity: .3;
     }
 }
 </style>

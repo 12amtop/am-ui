@@ -7,7 +7,7 @@ import Aside from '../lib/Aside.vue'
     <div class="layout">
         <TopNav class="nav"></TopNav>
         <div class="content">
-            <Aside></Aside>
+            <Aside class="aside"></Aside>
             <main>
                 <RouterView></RouterView>
             </main>
@@ -17,18 +17,21 @@ import Aside from '../lib/Aside.vue'
 
 <style lang="scss" scoped>
 .layout {
+    height: 100vh;
+    overflow: auto;
 
     >.content {
         line-height: 2.5rem;
         z-index: -1;
-        // display: flex;
-        // justify-content: flex-start;
 
+        >.aside {
+            padding-top: 4rem;
+        }
 
         >main {
-            margin-top: 4rem;
-            padding: 1rem 2rem;
-            margin-left: 7rem;
+            padding: 4rem 2rem;
+            margin-left: 10rem;
+            z-index: 0;
         }
 
         @media (max-width:500px) {

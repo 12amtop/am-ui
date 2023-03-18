@@ -1,17 +1,30 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import TopNav from '../components/TopNav.vue'
 import Aside from '../lib/Aside.vue'
+const width = document.documentElement.clientWidth;
+onMounted(() => {
+    const aside = document.querySelector('.aside')
+    if (aside) {
+        aside.style.display = (width > 500 ? 'none' : 'block')
+    }
+})
 </script>
 <template>
     <div class="homePage">
+        <Aside class="aside"></Aside>
         <div class="home">
             <TopNav></TopNav>
-            <Aside class="aside"></Aside>
             <div class="banner">
                 <h1>AM-UI</h1>
                 <h2>一个框架</h2>
-                <RouterLink to="/doc">开始</RouterLink>
-                <a href="#">github</a>
+                <RouterLink to="/doc">
+                    <h3>start</h3>
+                </RouterLink>
+                <div class="authors">
+                    <i-bi-github class="authorPage"></i-bi-github>
+                    <i-bi-github class="authorPage"></i-bi-github>
+                </div>
             </div>
         </div>
         <ul class="intro">
@@ -36,16 +49,17 @@ import Aside from '../lib/Aside.vue'
 
 <style lang="scss" scoped>
 .homePage {
-    transition: all 2.25s;
 
+    >.aside {
+        z-index: 13;
+        margin-top: 4rem;
+    }
 
     >.home {
-        >.aside {
-            display: none;
-        }
-
-        background: linear-gradient(.25turn, rgb(85, 24, 24), rgb(72, 72, 211));
         clip-path: ellipse(90% 50% at 50% 30%);
+        background: rgb(238, 174, 202);
+        background: linear-gradient(238deg, rgba(238, 174, 202, 1) 0%, rgba(187, 173, 185, 1) 57%, rgba(148, 187, 233, 1) 100%);
+
 
         >.banner {
             text-align: center;
@@ -59,42 +73,53 @@ import Aside from '../lib/Aside.vue'
 
             >a {
                 display: inline-block;
-                width: 8rem;
                 margin: 1rem;
-                padding: 1rem 0;
+                padding: .6rem 0;
                 border-radius: .8rem;
-                color: rgb(255, 255, 255);
-                background: rgb(38, 141, 97);
+                color: rgb(98, 128, 59);
+                background: rgba(255, 255, 255, .4);
             }
         }
 
-        @media (max-width: 500px) {
-            >.aside {
-                display: block;
-                z-index: 10;
-                margin-top: 4rem;
+
+        >.banner {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+
+            >h1 {
+                font-size: 1.4rem;
             }
 
-            >.banner {
-                color: orange;
-                display: grid;
+            >h2 {
+                font-size: 1rem;
+            }
+
+            >a {
+                width: 5rem;
+                height: auto;
+                margin-top: 0;
+            }
+
+            >.authors {
+                display: flex;
+                justify-content: space-evenly;
                 align-items: center;
-                justify-content: center;
 
-                >h1 {
-                    font-size: 1.4rem;
-                    color: orange;
+                >.authorPage {
+                    color: rgb(1, 0, 11);
+                    cursor: pointer;
                 }
+            }
 
-                >h2 {
-                    font-size: 1rem;
-                }
 
-                >a {
-                    width: 4rem;
-                    margin-top: 0;
-                }
+        }
 
+        @media (max-width: 500px) {
+
+            >a {
+                width: 4rem;
+                margin-top: 0;
             }
         }
     }

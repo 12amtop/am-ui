@@ -45,13 +45,13 @@ const classes = computed(() => {
 <style lang="scss">
 @mixin am-size-button {
     &.am-size-big {
-        font-size: 1.2rem;
-        width: 6rem;
+        font-size: 1.5rem;
+        width: 8rem;
         height: 4rem;
     }
 
     &.am-size-small {
-        font-size: .8rem;
+        font-size: .5rem;
         width: 4rem;
         height: 2rem;
     }
@@ -59,35 +59,37 @@ const classes = computed(() => {
 
 @mixin am-level-button {
     &.am-level-main {
-        color: rgb(20, 145, 177);
+        color: rgb(53, 160, 187);
     }
 
     &.am-level-danger {
-        color: red;
+        color: rgb(182, 45, 45);
     }
 }
 
 .am-button {
     border: none;
     cursor: pointer;
-    height: 3rem;
-    width: 6rem;
-    margin-left: 1rem;
+    height: 2.5rem;
+    width: 5rem;
     background-color: transparent;
     font-size: 1rem;
+    outline: none;
 
     &.am-theme-button {
-        background-color: rgb(152, 194, 232);
-        border-radius: .4rem;
-        box-shadow: 4px 1px 2px fade_out(black, 0.95);
+        background-color: #91a7b357;
+        border-radius: .5rem;
+        box-shadow: 8px 2px 8px fade_out(black, 0.9);
         @include am-size-button;
 
+
         &.am-level-main {
-            background: rgb(148, 113, 113);
+            background: rgb(114, 105, 158);
         }
 
         &.am-level-danger {
-            background-color: red;
+            background-color: rgb(236, 53, 53);
+            color: white;
         }
 
         &:hover {
@@ -96,32 +98,19 @@ const classes = computed(() => {
         }
 
         &:focus {
-            outline: none;
-            background-color: #3e8fbe;
-            color: white;
+            border: 1px solid rgb(147, 174, 206);
         }
 
         &[disabled] {
             background-color: #ccc;
             cursor: not-allowed;
             color: gray;
-
-            &:hover {
-                background-color: #ccc;
-                opacity: 1;
-            }
         }
 
         &.am-loading {
-            background-color: #ccc;
-
-            &:hover {
-                background: #ccc;
-                opacity: 1;
-            }
+            background-color: #91a7b357;
 
             &:focus {
-                background-color: #ccc;
                 color: black;
             }
 
@@ -163,16 +152,16 @@ const classes = computed(() => {
     }
 
     &.am-theme-link {
-        color: #46ad5e;
+        color: rgb(14, 128, 118);
         @include am-size-button;
         @include am-level-button;
 
         &:hover {
-            color: rgb(219, 149, 18);
+            opacity: .8;
         }
 
         &:focus {
-            color: rgb(114, 16, 9);
+            color: #46ad5e;
         }
 
     }

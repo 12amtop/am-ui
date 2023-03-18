@@ -60,17 +60,18 @@ import Button from '../lib/Button.vue'
 .am-theme-buttons {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .am-size-buttons div {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .am-level-buttons div {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 </style>

@@ -37,18 +37,12 @@ const toggleAside = () => {
 .top {
     width: 100%;
     position: fixed;
-    top: 0;
-    color: rgb(204, 188, 188);
-    background: linear-gradient(.25turn, rgb(85, 24, 24), rgb(72, 72, 211));
-
+    background: transparent;
+    z-index: 13;
     >.topNav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         height: 4rem;
         position: relative;
         z-index: 0;
-        background: black;
 
         >.menuChangeButton {
             font-size: 1.5rem;
